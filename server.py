@@ -26,21 +26,21 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
     if Request == 'reboot':
       output = subprocess.run(["reboot"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
     if Request == 'startkodi':
-      output = subprocess.Popen(["export DISPLAY=:1.0 && kodi"], shell=True)
+      output = subprocess.Popen(["bash kodi-standalone"], shell=True)
     if Request == 'stopkodi':
-      output = subprocess.Popen(["killall kodi"], shell=True)
+      output = subprocess.Popen(["killall kodi.bin_v8"], shell=True)
     if Request == 'bton':
       output = subprocess.Popen(["bash /nitesh/Bluetooth/BTon"], shell=True)
     if Request == 'btoff':
       output = subprocess.Popen([" bash /nitesh/Bluetooth/BToff"], shell=True)
     if Request == 'startyt':
-      output = subprocess.Popen(["bash /nitesh/youtube"], shell=True)
+      output = subprocess.Popen(["export DISPLAY=:0 && /etc/xdg/openbox/autostart"], shell=True)
     if Request == 'stopyt':
       output = subprocess.run(["killall chromium-browser"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
     if Request == 'volumeup':
-      output = subprocess.run(["amixer -q sset HDMI 10%+"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
+      output = subprocess.run(["amixer -q sset bluealsa 10%+"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
     if Request == 'volumedown':
-      output = subprocess.run(["amixer -q sset HDMI 10%-"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
+      output = subprocess.run(["amixer -q sset bluealsa 10%-"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
     return
 
 
