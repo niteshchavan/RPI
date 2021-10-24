@@ -1,0 +1,15 @@
+
+[Unit]
+Description=Server
+After=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/nitesh/server
+ExecStart=/bin/bash -c 'cd /nitesh/server && source bin/activate && python3.7 server.py'
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
