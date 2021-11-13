@@ -38,9 +38,9 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
     if Request == 'stopyt':
       output = subprocess.run(["killall chromium-browser"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
     if Request == 'volumeup':
-      output = subprocess.run(["amixer -q sset bluealsa 10%+"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
+      output = subprocess.run(["amixer -M set HDMI 10%+"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
     if Request == 'volumedown':
-      output = subprocess.run(["amixer -q sset bluealsa 10%-"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
+      output = subprocess.run(["amixer -M set HDMI 10%-"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
     return
 
 
