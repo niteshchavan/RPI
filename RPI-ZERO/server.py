@@ -31,9 +31,9 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
     if Request == 'reboot':
       output = subprocess.run(["reboot"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
     if Request == 'volumeup':
-      output = subprocess.run(["amixer -q sset Speaker 10%+"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
+      output = subprocess.run(["amixer -M set HDMI 10%+"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
     if Request == 'volumedown':
-      output = subprocess.run(["amixer -q sset Speaker 10%-"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
+      output = subprocess.run(["amixer -M set HDMI 10%-"], shell=True, stdout=subprocess.PIPE,stderr=subprocess.STDOUT).stdout.decode('utf-8')
     return
 
 
